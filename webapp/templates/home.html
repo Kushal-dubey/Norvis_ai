@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% block content %}
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-image: url("https://img.freepik.com/free-photo/futuristic-person-listening-music-ultra-modern-headphones_23-2151072968.jpg?semt=ais_hybrid&w=740");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    .center-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Full screen height */
+        padding: 20px;
+    }
+
+    .home-box {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 40px;
+        border-radius: 15px;
+        max-width: 750px;
+        width: 90%;
+        text-align: center;
+        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.25);
+    }
+</style>
+
+<div class="center-wrapper">
+    <div class="home-box">
+        <h1>Welcome to <b>Norvis AI</b></h1>
+        <p>This is a multi-agent AI system that classifies PDF, Email, and JSON files intelligently.<br>
+            Upload a file now and see the magic happen!</p>
+    </div>
+</div>
+{% endblock %}

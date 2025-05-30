@@ -1,0 +1,14 @@
+
+From: test@example.com
+To: support@company.com
+Subject: Complaint about recent delivery
+
+Dear Support Team,
+
+I am writing to complain about a recent order that I placed through your website.
+The delivery was delayed by more than a week, and the package was damaged upon arrival.
+
+Please resolve this issue as soon as possible.
+
+Regards,
+Kushal Dubey

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Memory Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f2f5;
+        }
+        .table-container {
+            margin: 50px auto;
+            width: 95%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        th {
+            background-color: #343a40;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="table-container">
+    <h2>🧠 Norvis AI - Memory Dashboard</h2>
+    <form method="get" class="row mb-3">
+        <div class="col-md-3">
+            <select name="type" class="form-select">
+                <option value="">All Types</option>
+                <option value="pdf" {% if filter_type == 'pdf' %}selected{% endif %}>PDF</option>
+                <option value="json" {% if filter_type == 'json' %}selected{% endif %}>JSON</option>
+                <option value="txt" {% if filter_type == 'txt' %}selected{% endif %}>TXT</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <input type="text" name="search" class="form-control" placeholder="Search..." value="{{ search }}">
+        </div>
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-primary">Filter</button>
+            <a href="{{ url_for('main.view_memory') }}" class="btn btn-secondary">Reset</a>
+        </div>
+        <div class="col-md-3 text-end">
+            <a href="{{ url_for('main.export_memory') }}" class="btn btn-success">Export CSV</a>
+        </div>
+    </form>
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Source</th>
+            <th>Type</th>
+            <th>Extracted Values</th>
+            <th>Content</th>
+            <th>Result</th>
+            <th>Thread ID</th>
+            <th>Timestamp</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for log in logs %}
+        <tr>
+            <td>{{ log[0] }}</td>
+            <td>{{ log[1] }}</td>
+            <td>{{ log[7] }}</td>
+            <td>{{ log[4] }}</td>
+            <td>{{ log[2] }}</td>
+            <td>{{ log[3] }}</td>
+            <td>{{ log[6] }}</td>
+            <td>{{ log[5] }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <nav>
+        <ul class="pagination justify-content-center">
+            {% for p in range(1, pages + 1) %}
+            <li class="page-item {% if p == page %}active{% endif %}">
+                <a class="page-link" href="{{ url_for('main.view_memory', page=p, type=filter_type, search=search) }}">{{ p }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</div>
+</body>
+</html>

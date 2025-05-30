@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+<style>
+  body {
+      background-image: url("https://source.unsplash.com/1600x900/?artificial,intelligence");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+  }
+  .upload-box {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 50px auto;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  }
+</style>
+
+<div class="upload-box text-center">
+  <h2>Upload Your File to Try Norvis AI</h2>
+  <form action="/upload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" class="form-control mb-3" required>
+    <button type="submit" class="btn btn-primary">Upload</button>
+  </form>
+</div>
+{% endblock %}

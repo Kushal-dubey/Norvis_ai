@@ -1,0 +1,12 @@
+From: kushal.dubey@example.com
+Subject: Complaint regarding invoice INV-12345
+Date: 2025-05-28
+
+Dear Support Team,
+
+I am writing to complain about the invoice number INV-12345 which has incorrect billing amount.
+
+Please look into this issue urgently.
+
+Regards,
+Kushal Dubey
